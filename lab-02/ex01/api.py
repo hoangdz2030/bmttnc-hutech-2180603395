@@ -13,12 +13,12 @@ def caesar_encrypt():
     encrypted_text = Caesar_Cipher.encrypt_text(plain_text,key)
     return jsonify({'encrypted_message': encrypted_text})
 
-@app.route("/api/caesar/decrypt", methods=["POTS"])
+@app.route("/api/caesar/decrypt", methods=["POST"])
 def caesar_decrypt():
     data = request.json
     cipher_text = data['cipher_text']
     key = int(data['key'])
-    decrypted_text = caesar_decrypt.decrypt_text(cipher_text, key)
+    decrypted_text = Caesar_Cipher.decrypt_text(cipher_text, key)  # Fix typo here
     return jsonify({'decrypted_message': decrypted_text})
 #main function
 if __name__ == "__main__":
